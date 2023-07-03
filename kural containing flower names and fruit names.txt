@@ -1,0 +1,49 @@
+# author - inventsekar
+# date - 3rd july 2023
+# project - splunk-ing thirukurals at https://github.com/inventsekar/Splunking-Thirukkural
+------------------------
+1. many said, there are only two flowers used in Thirukkural (Anicham (Scarlet Pimpernel) and Kuvalai (Cup Flower)). Actually “Thamarai”(Lotus) also used in Thirukkural.
+(The splunk search query - index=kuraltamil தாமரை)
+
+தாம்வீழ்வார் மென்றோள் துயிலின் இனிதுகொல்
+
+தாமரைக் கண்ணான் உலகு. ⁠(1103)
+
+மடியுளாள் மாமுகடி என்ப மடியிலான்
+
+தாளுளான் தாமரையி னாள். ⁠(617)
+
+2. Nezlhunji fruit(நெருஞ்சிப் பழம்) is the only fruit featuring in the book(1120)
+
+அனிச்சமும் அன்னத்தின் தூவியும் மாதர்
+
+அடிக்கு நெருஞ்சிப் பழம்.(1120)
+
+3. Kural which has the word “அனிச்ச” (the flower அனிச்சம்)
+
+(The splunk search query - index=kuraltamil அனிச்ச| table _raw
+
+மோப்பக் குழையும் அனிச்சம் முகந்திரிந்து
+
+நோக்கக் குழையும் விருந்து. ⁠(90)
+
+அனிச்சமும் அன்னத்தின் தூவியும் மாதர்
+
+அடிக்கு நெருஞ்சிப் பழம். ⁠(1120)
+
+அனிச்சப்பூக் கால்களையாள் பெய்தாள் நுகப்பிற்கு
+
+நல்ல படாஅ பறை. ⁠(1115)
+
+நன்னீரை வாழி அனிச்சமே நின்னினும்
+
+மென்னீரள் யாம்வீழ் பவள். ⁠(1111)
+
+4. The only seed featuring in the book is, Kundrimani குன்றிமணி (Crab’s eye tree)
+Thirukkural speaks only about one seed known as “KundriMani” (Kural 277)
+
+குன்றிமணியின் தாவரவியல் பெயர் Abrus precatorius.
+
+புறங்குன்றி கண்டனைய ரேனும் அகங்குன்றி
+
+முக்கிற் கரியார் உடைத்து (திருக்குறள் 277)
