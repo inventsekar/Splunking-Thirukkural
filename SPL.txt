@@ -1,0 +1,48 @@
+date and day - 17-may-2026 Sunday
+author - inventsekar
+task - finding out kural's character count
+---------------------------------------------
+step 1 
+pls upload all kural's text file to Splunk
+
+step 2
+when uploading Splunk will not know the line breaker, so it will break every line. 
+to update every 2 lines are one event, we should use this while data onboarding 
+SHOULD_LINEMERGE=false
+LINE_BREAKER=([\r\n]\s[\r\n]+)
+
+step 3
+after uploading, this will list down all 1330 kurals:
+source="numberedKurals.txt" host="test" sourcetype="kural" 
+
+step 4
+to find out the character count:
+
+source="numberedKurals-charCount.txt" host="test" sourcetype="kural" 
+| rex max_match=0 (?<digits>\d) 
+| eval digitsCount=mvcount(digits) 
+| rex max_match=0 (?<char>.) 
+| lookup ucd_category_lookup char output category 
+| eval length=mvcount(mvfilter(NOT match(category, "^M"))) 
+| eval len = length - digitsCount 
+| eval CharCount=len-1 
+| table _raw digits digitsCount length len CharCount
+
+
+step 5 - shortest kurals, with 23 characters count
+நாணாமை நாடாமை நாரின்மை யாதொன்றும்
+பேணாமை பேதை தொழில் ⁠833
+
+ஊடுக மன்னோ ஒளியிழை யாமிரப்ப
+நீடுக மன்னோ இரா ⁠1329
+
+ஊடி யவரை உணராமை வாடிய
+வள்ளி முதலரிந் தற்று ⁠1304
+
+step 6 - longest kurals, with 39 characters count
+
+கலந்துணர்த்தும் காதலர்க் கண்டாற் புலந்துணராய்
+பொய்க்காய்வு காய்திஎன் நெஞ்சு ⁠1246
+
+குடிப்பிறந்தார் கண்விளங்கும் குற்றம் விசும்பின்
+மதிக்கண் மறுப்போல் உயர்ந்து ⁠957
